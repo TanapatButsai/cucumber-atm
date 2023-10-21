@@ -4,7 +4,7 @@ import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-
+import io.cucumber.java.en.And;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class StepDefATM {
@@ -68,6 +68,10 @@ public class StepDefATM {
     public void customer_id_account_balance_is(int id, double balance) {
         assertEquals(balance,
                      bank.getCustomer(id).getAccount().getBalance());
+    }
+    @When("I deposit {float} into ATM")
+    public void i_deposit_into_ATM(double amount) {
+        atm.deposit(amount);
     }
 
 }
